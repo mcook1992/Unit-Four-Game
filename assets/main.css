@@ -1,9 +1,10 @@
 img {
-  height: 75px;
+  height: 50px;
   width: 75px;
   display: inline-block;
   margin: 0px, 50px;
   align-content: center;
+  object-fit: cover;
 }
 
 .characterImageAndWords {
@@ -24,6 +25,7 @@ img {
   border: blue solid 2px;
   color: aliceblue;
   text-align: center;
+  margin-bottom: 50px;
 }
 
 h1 {
@@ -80,4 +82,19 @@ h4 {
   /* text-align: center; */
   margin-top: 0px;
   margin-bottom: 15px;
+}
+
+.restartContainer {
+  align-content: center;
+  text-align: center;
+}
+
+.yourCharacterContainer img {
+  height: 200px;
+  width: 200px;
+}
+
+.defenderContainer img {
+  height: 200px;
+  width: 200px;
 }

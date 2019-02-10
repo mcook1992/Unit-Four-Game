@@ -24,6 +24,11 @@
         </h4>
       </div>
     </div>
+    <div class="container restartContainer">
+      <button type="button" class="btn btn-default hidden" id="restart">
+        Restart
+      </button>
+    </div>
 
     <div class="container">
       <div class="row">
@@ -31,11 +36,11 @@
         <div class="bigImagesContainer">
           <div class="characterImageAndWords selectAPlayer" id="firstCharacter">
             <p class="characterName">
-              Character <br />
-              Name
+              Obi-wan <br />
+              Kenobi
             </p>
             <img
-              src="assets/images/Screen Shot 2018-10-09 at 2.00.54 PM copy.png"
+              src="assets/images/kamesh-vedula-59768-unsplash copy.jpg"
               alt=""
             />
             <p class="characterHealth">Health</p>
@@ -45,8 +50,8 @@
             id="secondCharacter"
           >
             <p class="characterName">
-              Character <br />
-              Name
+              Senator <br />
+              Palpatine
             </p>
             <img
               src="assets/images/daniel-sandoval-433000-unsplash copy.jpg"
@@ -56,8 +61,8 @@
           </div>
           <div class="characterImageAndWords selectAPlayer" id="thirdCharacter">
             <p class="characterName">
-              Character <br />
-              Name
+              Annakin <br />
+              Skywalker
             </p>
             <img
               src="assets/images/smit-patel-344842-unsplash copy.jpg"
@@ -70,8 +75,8 @@
             id="fourthCharacter"
           >
             <p class="characterName">
-              Character <br />
-              Name
+              Darth <br />
+              Vader
             </p>
             <img
               src="assets/images/josephine-menge-717900-unsplash copy.jpg"
@@ -83,37 +88,32 @@
       </div>
     </div>
 
-    <div class="container yourCharacterContainer">
+    <div class="container yourCharacterContainer hidden" id="yourCharacter">
       <div class="row">
         <h4>Your Character</h4>
       </div>
     </div>
 
-    <div class="container enemiesAvailableContainer">
-      <div class="row">
-        <h4 class="characterOptions">Enemies Available to Fight</h4>
-      </div>
-    </div>
-
     <div class="container buttonHolder">
       <div class="row buttonHolder">
-        <button type="button" class="btn btn-default" id="attackButton">
+        <button type="button" class="btn btn-default hidden" id="attackButton">
           Attack
         </button>
       </div>
     </div>
 
-    <div class="container defenderContainer">
+    <div class="container defenderContainer hidden" id="opponentContainer">
       <div class="row">
         <h4>Opponent</h4>
       </div>
     </div>
 
-    <div class="container">
-      <button type="button" class="btn btn-default hidden" id="restart">
-        Restart
-      </button>
+    <div class="container enemiesAvailableContainer hidden">
+      <div class="row">
+        <h4>Enemies Available to Fight</h4>
+      </div>
     </div>
+
     <script src="assets/main.js"></script>
   </body>
 </html>

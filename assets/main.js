@@ -13,7 +13,6 @@ var defenderHealthPoints = 0;
 var attackButtonIsEnabled = 0;
 var numberOfEnemiesToDefeat = 3;
 var chosenCharacterID = " ";
-// var $instructionTextElement = $("#instructionText");
 
 //creating objects for each of the characters:
 
@@ -51,10 +50,13 @@ var characterArray = [
 
 $(".selectAPlayer").on("click", function() {
   if (mainCharacterIsSelected == false) {
+    //unhide your character container
+    $("#yourCharacter").removeClass("hidden");
+    $(".enemiesAvailableContainer").removeClass("hidden");
     //code for moving characters around
     var chosenCharacter = $(this).removeClass("selectAPlayer");
     chosenCharacterID = $(this).attr("id");
-    // console.log("The chosen chracter id is: " + chosenCharacterID);
+
     chosenCharacter.attr("class", "chosenCharacter");
     $(".yourCharacterContainer").append(chosenCharacter);
     mainCharacterIsSelected = true;
@@ -62,14 +64,12 @@ $(".selectAPlayer").on("click", function() {
     chosenEnemies.attr("class", "enemy");
     $(".enemiesAvailableContainer").append(chosenEnemies);
     $("#instructionText").text("Now pick an enemy to battle.");
+    $(".characterOptions").attr("class", "hidden");
 
     //code for adjusting main character health points and attack power based on which character is chosen.
 
     for (var i = 0; i < characterArray.length; i++) {
       if (characterArray[i].name == chosenCharacterID) {
-        console.log(
-          "We have a match! The matching ID is: " + characterArray[i].name
-        );
         mainHealthPoints = characterArray[i].healthPoints;
         mainAttackPower = characterArray[i].attackPower;
         mainAttackPowerIncrement = characterArray[i].attackPower;
@@ -80,35 +80,30 @@ $(".selectAPlayer").on("click", function() {
     defenderIsSelected == false &&
     $(this).attr("id") !== chosenCharacterID
   ) {
+    $("#attackButton").removeClass("hidden");
+    $("#opponentContainer").removeClass("hidden");
+
     var chosenDefender = $(this).attr("class", "currentDefender");
     var chosenDefenderID = $(this).attr("id");
-    // console.log("Chosen Defender id: " + chosenDefenderID);
+
     $(".defenderContainer").append(chosenDefender);
     defenderIsSelected = true;
-    // console.log("Defender is selected!");
 
     //Setting defender health and attack points etc.
 
     for (var d = 0; d < characterArray.length; d++) {
       console.log("we're in the for loop");
       if (characterArray[d].name == chosenDefenderID) {
-        console.log(
-          "We have a defender match! The matching ID is: " +
-            characterArray[d].name
-        );
         defenderHealthPoints = characterArray[d].healthPoints;
         defenderCounterAttackPower = characterArray[d].counterAttackPower;
         $("#instructionText").text(
           "Now click the attack button to do battle with your opponent"
         );
-        console.log(
-          defenderCounterAttackPower + " and " + defenderHealthPoints
-        );
       }
     }
   } else {
     alert(
-      "Nothing else can happen right now! Press the attack button and finish this battle before choosing another defender"
+      "That's not a valid click at the moment. Follow the instruction text to figure out your next move."
     );
   }
 });
@@ -126,18 +121,18 @@ $("#attackButton").on("click", function() {
       .find(".characterHealth")
       .text(defenderHealthPoints);
 
-    console.log("Defender Health Points:" + defenderHealthPoints);
-
     //setting up the counter attack if the defender still has health points
 
     if (defenderHealthPoints > 0) {
       mainHealthPoints = mainHealthPoints - defenderCounterAttackPower;
-      console.log("Main Health Points: " + mainHealthPoints);
+
       $(".yourCharacterContainer")
         .find(".characterHealth")
         .text(mainHealthPoints);
       $("#instructionText").text(
-        "Your opponent counter attacked you for: " +
+        "You attacked your opponent for " +
+          mainAttackPower +
+          " points.Your opponent then counter-attacked you for: " +
           defenderCounterAttackPower +
           " points"
       );
@@ -154,9 +149,11 @@ $("#attackButton").on("click", function() {
       }
     } else {
       //if the defender is killed
-      console.log("Defender has zero defense left!");
+
       $("#instructionText").text(
-        "You defeated your defender! Now pick another one"
+        "You attacked your opponent for " +
+          mainAttackPower +
+          " points and defeated your opponent! Now pick another one."
       );
       defenderIsSelected = false;
       $(".currentDefender").attr("class", "hidden");
@@ -173,7 +170,6 @@ $("#attackButton").on("click", function() {
 });
 
 $("#restart").on("click", function() {
-  alert("restart button is working!");
   location.reload();
 });
 

@@ -1,0 +1,83 @@
+img {
+  height: 75px;
+  width: 75px;
+  display: inline-block;
+  margin: 0px, 50px;
+  align-content: center;
+}
+
+.characterImageAndWords {
+  display: inline-block;
+  text-align: center;
+  color: white;
+  background-color: gray;
+  margin: 15px 15px 15px 0px;
+}
+
+.yourCharacterContainer {
+  min-height: 125px;
+}
+
+.chosenCharacter {
+  display: inline-block;
+  background-color: green;
+  border: blue solid 2px;
+  color: aliceblue;
+  text-align: center;
+}
+
+h1 {
+  color: yellow;
+  text-align: center;
+}
+
+.enemy {
+  background-color: red;
+  border: orange solid 2px;
+  display: inline-block;
+  margin-right: 10px;
+  text-align: center;
+  color: aliceblue;
+  margin-bottom: 30px;
+}
+
+.currentDefender {
+  background-color: orange;
+  border: red solid 2px;
+  display: inline-block;
+  text-align: center;
+  color: aliceblue;
+}
+
+body {
+  background-image: url("images/starWarsBackground.jpg");
+}
+
+.defenderContainer {
+  min-height: 125px;
+}
+
+h4 {
+  color: white;
+  align-content: left;
+}
+
+#instructionText {
+  color: aliceblue;
+  font-style: italic;
+}
+
+/* .characterOptions {
+  text-align: left;
+} */
+
+#instructionText {
+  color: aliceblue;
+  text-align: center;
+}
+
+.buttonHolder {
+  /* text-align: center; */
+  margin-top: 0px;
+  margin-bottom: 15px;
+}

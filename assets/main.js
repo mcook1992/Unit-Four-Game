@@ -130,7 +130,7 @@ $("#attackButton").on("click", function() {
         .text(mainHealthPoints);
       $("#instructionText").text(
         "You attacked your opponent for " +
-          mainAttackPower +
+          (mainAttackPower - mainAttackPowerIncrement) +
           " points.Your opponent then counter-attacked you for " +
           defenderCounterAttackPower +
           " points"

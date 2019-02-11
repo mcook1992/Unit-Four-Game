@@ -131,7 +131,7 @@ $("#attackButton").on("click", function() {
       $("#instructionText").text(
         "You attacked your opponent for " +
           (mainAttackPower - mainAttackPowerIncrement) +
-          " points.Your opponent then counter-attacked you for " +
+          " points. Your opponent then counter-attacked you for " +
           defenderCounterAttackPower +
           " points"
       );

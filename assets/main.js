@@ -18,21 +18,21 @@ var chosenCharacterID = " ";
 
 var firstCharacter = {
   name: "firstCharacter",
-  healthPoints: 100,
+  healthPoints: 120,
   attackPower: 8,
-  counterAttackPower: 20
+  counterAttackPower: 10
 };
 var secondCharacter = {
   name: "secondCharacter",
   healthPoints: 110,
-  attackPower: 6,
+  attackPower: 10,
   counterAttackPower: 25
 };
 var thirdCharacter = {
   name: "thirdCharacter",
-  healthPoints: 90,
+  healthPoints: 125,
   attackPower: 10,
-  counterAttackPower: 20
+  counterAttackPower: 10
 };
 var fourthCharacter = {
   name: "fourthCharacter",
@@ -132,7 +132,7 @@ $("#attackButton").on("click", function() {
       $("#instructionText").text(
         "You attacked your opponent for " +
           mainAttackPower +
-          " points.Your opponent then counter-attacked you for: " +
+          " points.Your opponent then counter-attacked you for " +
           defenderCounterAttackPower +
           " points"
       );
@@ -141,7 +141,12 @@ $("#attackButton").on("click", function() {
 
       if (mainHealthPoints < 1) {
         mainHealthPoints = 0;
+        $(".yourCharacterContainer")
+          .find(".characterHealth")
+          .text(mainHealthPoints);
+        $("#no-audio")[0].play();
         alert("You're toast! Press restart to try again");
+
         $("#restart").removeClass("hidden");
         $("#attackButton").attr("class", "hidden");
         $("#instructionText").text("You lost! Press restart to try again");
@@ -163,6 +168,10 @@ $("#attackButton").on("click", function() {
         alert("You won! Press restart to play again!");
         $("#restart").removeClass("hidden");
         $("#attackButton").attr("class", "hidden");
+
+        //This audio is just me singing the theme song.
+        $("#yes-audio")[0].play();
+
         $("#instructionText").text("You won! Now press restart to play again");
       }
     }

@@ -92,7 +92,6 @@ $(".selectAPlayer").on("click", function() {
     //Setting defender health and attack points etc.
 
     for (var d = 0; d < characterArray.length; d++) {
-      console.log("we're in the for loop");
       if (characterArray[d].name == chosenDefenderID) {
         defenderHealthPoints = characterArray[d].healthPoints;
         defenderCounterAttackPower = characterArray[d].counterAttackPower;
